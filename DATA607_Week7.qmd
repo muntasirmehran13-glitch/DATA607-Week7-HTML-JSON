@@ -1,0 +1,78 @@
+---
+title: "DATA 607 - Week 7: Working with HTML and JSON"
+author: "Muntasir"
+format: html
+editor: visual
+---
+
+## Introduction
+
+For week 7, I chose three books under data sicence and statistical learning. I manually created an HTML file and a JSON file that had the same book info.
+
+The goal is to import both files into R, change them into data frames, and compare results.
+
+## 1. Load Packages
+
+```{r}
+library(rvest)
+library(jsonlite)
+```
+
+## 2. Import HTML Data
+
+\- `rvest` lets me to extract the table from my HTML file.
+
+```{r}
+html_page <- read_html("books.html")
+
+html_df <- html_page |>
+  html_element("table") |>
+  html_table()
+
+html_df <- as.data.frame(html_df)
+
+html_df
+```
+
+## 3. Import JSON Data
+
+\-`jsonlite` lets me read the JSON file and convert it into a data frame.
+
+```{r}
+json_df <- fromJSON("books.json")
+
+json_df <- as.data.frame(json_df)
+
+json_df
+```
+
+## 4. Data Frames Comparison
+
+I had to standardize the column order and data types before verifying if the two data frames coincide.
+
+```{r}
+columns <- c("Title", "Authors", "Year",
+             "Publisher", "Edition")
+
+html_df <- html_df[, columns]
+json_df <- json_df[, columns]
+
+html_df$Year <- as.integer(html_df$Year)
+json_df$Year <- as.integer(json_df$Year)
+
+html_df$Edition <- as.integer(html_df$Edition)
+json_df$Edition <- as.integer(json_df$Edition)
+
+rownames(html_df) <- NULL
+rownames(json_df) <- NULL
+
+identical(html_df, json_df)
+```
+
+## 5. Conclusion
+
+Ultimately, the assignment showed me how HTML and JSON can indicate identical information using different frameworks.
+
+While HTML formats data within a table, JSON organizes the information as structured entities.
+
+After importing and standardizing both datasets, I am able to compare their contents in R to ensure that the information is consistent throughout formats.

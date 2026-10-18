@@ -1,0 +1,24 @@
+
+[
+  {
+    "Title": "R for Data Science",
+    "Authors": "Hadley Wickham, Mine Çetinkaya-Rundel, Garrett Grolemund",
+    "Year": 2023,
+    "Publisher": "O'Reilly Media",
+    "Edition": 2
+  },
+  {
+    "Title": "Python for Data Analysis",
+    "Authors": "Wes McKinney",
+    "Year": 2022,
+    "Publisher": "O'Reilly Media",
+    "Edition": 3
+  },
+  {
+    "Title": "An Introduction to Statistical Learning",
+    "Authors": "Gareth James, Daniela Witten, Trevor Hastie, Robert Tibshirani",
+    "Year": 2021,
+    "Publisher": "Springer",
+    "Edition": 2
+  }
+]
