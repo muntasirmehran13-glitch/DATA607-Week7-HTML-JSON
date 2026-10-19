@@ -23,7 +23,9 @@ library(jsonlite)
 \- `rvest` lets me to extract the table from my HTML file.
 
 ```{r}
-html_page <- read_html("books.html")
+html_page <- read_html(
+  "https://raw.githubusercontent.com/muntasirmehran13-glitch/DATA607-Week7-HTML-JSON/main/books.html"
+)
 
 html_df <- html_page |>
   html_element("table") |>
@@ -39,7 +41,9 @@ html_df
 \-`jsonlite` lets me read the JSON file and convert it into a data frame.
 
 ```{r}
-json_df <- fromJSON("books.json")
+json_df <- fromJSON(
+  "https://raw.githubusercontent.com/muntasirmehran13-glitch/DATA607-Week7-HTML-JSON/main/books.json"
+)
 
 json_df <- as.data.frame(json_df)
 
@@ -76,3 +80,10 @@ Ultimately, the assignment showed me how HTML and JSON can indicate identical in
 While HTML formats data within a table, JSON organizes the information as structured entities.
 
 After importing and standardizing both datasets, I am able to compare their contents in R to ensure that the information is consistent throughout formats.
+
+## Source Files
+
+The HTML and JSON files are publicly available in my GitHub repository:
+
+- [HTML Book Data](https://github.com/muntasirmehran13-glitch/DATA607-Week7-HTML-JSON/blob/main/books.html)
+- [JSON Book Data](https://github.com/muntasirmehran13-glitch/DATA607-Week7-HTML-JSON/blob/main/books.json)

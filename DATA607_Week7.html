@@ -373,7 +373,9 @@ library(jsonlite)</code></pre>
 <h2>2. Import HTML Data</h2>
 <p>- <code>rvest</code> lets me to extract the table from my HTML
 file.</p>
-<pre class="r"><code>html_page &lt;- read_html(&quot;books.html&quot;)
+<pre class="r"><code>html_page &lt;- read_html(
+  &quot;https://raw.githubusercontent.com/muntasirmehran13-glitch/DATA607-Week7-HTML-JSON/main/books.html&quot;
+)
 
 html_df &lt;- html_page |&gt;
   html_element(&quot;table&quot;) |&gt;
@@ -399,7 +401,9 @@ html_df</code></pre>
 <h2>3. Import JSON Data</h2>
 <p>-<code>jsonlite</code> lets me read the JSON file and convert it into
 a data frame.</p>
-<pre class="r"><code>json_df &lt;- fromJSON(&quot;books.json&quot;)
+<pre class="r"><code>json_df &lt;- fromJSON(
+  &quot;https://raw.githubusercontent.com/muntasirmehran13-glitch/DATA607-Week7-HTML-JSON/main/books.json&quot;
+)
 
 json_df &lt;- as.data.frame(json_df)
 
@@ -448,6 +452,17 @@ information as structured entities.</p>
 <p>After importing and standardizing both datasets, I am able to compare
 their contents in R to ensure that the information is consistent
 throughout formats.</p>
+</div>
+<div id="source-files" class="section level2">
+<h2>Source Files</h2>
+<p>The HTML and JSON files are publicly available in my GitHub
+repository:</p>
+<ul>
+<li><a href="https://github.com/muntasirmehran13-glitch/DATA607-Week7-HTML-JSON/blob/main/books.html">HTML
+Book Data</a></li>
+<li><a href="https://github.com/muntasirmehran13-glitch/DATA607-Week7-HTML-JSON/blob/main/books.json">JSON
+Book Data</a></li>
+</ul>
 </div>
 
 
